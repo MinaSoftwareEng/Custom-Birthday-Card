@@ -1,0 +1,10 @@
+body {
+  background: rgba(220, 168, 152, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+

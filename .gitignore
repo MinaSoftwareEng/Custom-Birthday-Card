@@ -1,0 +1,8 @@
+logs/
+dist/
+tmp/
+.vscode/
+.idea/
+.DS_Store/
+Thumbs.db/
+.env/

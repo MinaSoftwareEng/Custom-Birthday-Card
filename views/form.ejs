@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>pageTitle</title>
+  </head>
+  <body>
+    <div class="card-container">
+      <div class="card">
+        <div class="img-card">
+          <img src="/images/birthdayCard.svg" alt="birthdayCard">
+        </div>
+        <form id="cardForm">
+          <label for="messageBox" class="visually-hidden"></label>
+          <textarea
+            name="birthdayMessage"
+            id="messageBox"
+            placeholder="Enter your text here..."
+            required
+          ></textarea>
+          <button type="submit" class="btn-save">Save & share</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      document.getElementById('cardForm').addEventListener("submit", function(e) {
+        e.preventDefault(); //stop default form submission
+        const message = document.getElementById('messageBox').value;
+
+        fetch("/sendBirthdayMessage", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({birthdayMessage: message })
+        })
+        .then(res => res.json())
+        .then(data => {
+          const link = `${window.location.origin}/card/${data.id}`;
+          navigator.clipboard.writeText(link);
+          alert("Link copied to clipboard!");
+          window.location.href = link;
+        })
+        .catch(err => {
+          console.error("Error savingg message", err);
+          alert("Something went wrong. Please try again")
+        })
+
+      })
+    </script>
+  </body>
+</html>

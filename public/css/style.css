@@ -1,0 +1,123 @@
+@font-face {
+  font-family: "FrenchFont";
+  src: url("/font/Parisienne-Regular.ttf") format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "FrenchFont", sans-serif;
+  overflow: hidden;
+}
+
+.img-card {
+  width: 90vw;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.img-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card {
+  position: relative;
+}
+#imgCard {
+  box-shadow: 15px 15px 12px rgba(0, 0, 0, 0.15);
+  border: 3px solid #c47a6d;
+}
+#cardForm {
+  height: 40vh;
+  max-height: 500px;
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  overflow: visible;
+}
+#messageBox {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  max-height: 300px;
+  font-size: 1.6em;
+  padding: 10px;
+  border: none;
+  outline: none;
+  resize: none;
+  background: #f4eed7;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  font-family: "FrenchFont", cursive;
+  text-align: center;
+  color: #61660b;
+}
+
+#messageBox:focus {
+  border-bottom: 2px solid #df928a; /* Pink underline */
+  box-shadow: 0 2px 6px rgba(255, 105, 180, 0.4); /* Soft glow */
+  border-radius: 10px;
+}
+
+.btn-save,
+.btn-print {
+  padding: 5px;
+  font-family: "FrenchFont", cursive;
+  font-size: 16px;
+  font-weight: 600;
+  background: #61660b;
+  border: 2px solid #b48e6b;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 5px 3px 10px rgba(0, 0, 0, 0.3);
+  width: 100px;
+}
+
+@media print {
+  .btn-save,
+  .btn-print {
+    display: none;
+  }
+
+  .card-container,
+  .card {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+  .card-container {
+    page-break-after: avoid;
+  }
+  #imgCard {
+    height: 100%;
+    box-shadow: none;
+  }
+  @page {
+    margin: 0;
+    size: A5 portrait;
+  }
+  html body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+}
