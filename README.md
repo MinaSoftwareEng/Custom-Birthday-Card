@@ -25,7 +25,7 @@ The **Birthday-Card** project is designed to bring cheerful and happy emotions t
 ## 🚀 How to Run
 ```bash
 # Clone the repo
-git clone https://github.com/MinaSoftwareEng/School-Notebook.git
+git clone https://github.com/MinaSoftwareEng/Custom-Birthday-Card.git
 
 # Navigate into the folder
 cd Birthday-Card
