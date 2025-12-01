@@ -19,14 +19,16 @@
             id="messageBox"
             placeholder="Enter your text here..."
             required
+            rows="4"
+            maxlength="80"
           ></textarea>
-          <button type="submit" class="btn-save">Save & share</button>
         </form>
+        <button type="submit" form="cardForm" class="btn-save">Copy a link</button>
       </div>
     </div>
     <script>
       document.getElementById('cardForm').addEventListener("submit", function(e) {
-        e.preventDefault(); //stop default form submission
+        e.preventDefault(); 
         const message = document.getElementById('messageBox').value;
 
         fetch("/sendBirthdayMessage", {
@@ -42,7 +44,7 @@
           window.location.href = link;
         })
         .catch(err => {
-          console.error("Error savingg message", err);
+          console.error("Error saving message", err);
           alert("Something went wrong. Please try again")
         })
 
